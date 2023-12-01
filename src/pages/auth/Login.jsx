@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../../services/config";
+import { AuthContext } from "../../context/auth.context";
 
 function Login() {
+  const { authenticateUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -24,12 +26,20 @@ function Login() {
       const response = await service.post("/auth/login", credentials);
       console.log(response);
 
-      // este token lo vamos a almacenar de una forma segura en ese localStorage
-      // localStorage.setItem("authToken", response.data.authToken);
+      // const userRole = response.data.payload.role;
+      // console.log(userRole)
 
-      // await authenticateUser() // authenticateUser es asincrona y queremos ejecitarla antes de redireccionar al usuario
+      // este token lo vamos a almacenar de una forma segura en ese localStorage
+      localStorage.setItem("authToken", response.data.authToken);
+
+      await authenticateUser() // authenticateUser es asincrona y queremos ejecutarla antes de redireccionar al usuario
 
       navigate("/");
+      // if (userRole === "admin") {
+      //   navigate("/admin/management");
+      // } else {
+      //   navigate("/");
+      // }
     } catch (error) {
       console.log(error);
       if (error.response.status === 400) {

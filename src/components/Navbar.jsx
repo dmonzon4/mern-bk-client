@@ -16,6 +16,7 @@ export default function Navbar() {
   return (
     <nav>
       <NavLink to="/" style={toggleStyles}>Home</NavLink>
+      {/* <NavLink to="/admin/management" style={toggleStyles}>Management</NavLink> */}
       <NavLink to="/signup" style={toggleStyles}>Registro</NavLink>
       <NavLink to="/login" style={toggleStyles}>Acceso</NavLink>
     </nav>
