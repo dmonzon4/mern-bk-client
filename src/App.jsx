@@ -22,10 +22,10 @@ import AllReservations from "./pages/admin/AllReservations";
 // components
 import Navbar from "./components/Navbar";
 
-// import IsPrivate from "./components/IsPrivate";
+import IsPrivate from "./components/IsPrivate";
 
 export default function App() {
-  const { userRole } = useContext(AuthContext);
+  // const { userRole } = useContext(AuthContext);
   return (
     <>
       <Navbar />
@@ -39,15 +39,19 @@ export default function App() {
         <Route path="/login" element={<Login />} />
 
         {/* rutas privadas */}
-        {/* <Route path="admin/managament" element={ <IsPrivate><Management /></IsPrivate> }/> */}
-        {userRole === "admin" ? (
-          <Route path="/admin/management" element={<Management />} />) : null}
-        {userRole === "admin" ? (
+        <Route path="/admin/management" element={<IsPrivate><Management /></IsPrivate>}/>
+        <Route path="/admin/product-list" element={<IsPrivate><ProductList /></IsPrivate>} />
+        <Route path="/admin/add-product" element={<IsPrivate><AddProduct /></IsPrivate>} />
+        <Route path="/admin/all-reservations" element={<IsPrivate><AllReservations /></IsPrivate>} />
+        
+        {/* {userRole === "admin" ? (
+          <Route path="/admin/management" element={<IsPrivate><Management /></IsPrivate>} />) : null} */}
+        {/* {userRole === "admin" ? (
           <Route path="/admin/product-list" element={<ProductList />} />) : null}
         {userRole === "admin" ? (
           <Route path="/admin/add-product" element={<AddProduct />} />) : null}
         {userRole === "admin" ? (
-          <Route path="/admin/all-reservations" element={<AllReservations />} />) : null}
+          <Route path="/admin/all-reservations" element={<AllReservations />} />) : null} */}
 
         {/* error FE routes */}
         <Route path="/error" element={<Error />} />

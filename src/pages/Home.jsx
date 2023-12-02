@@ -20,7 +20,7 @@ function Home() {
 
   useEffect(() => {
     getData();
-  }, [authenticateUser]);
+  }, []);
 
     const getData = async () => {
       try {

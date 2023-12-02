@@ -26,7 +26,7 @@ function AuthWrapper(props) {
       console.log(response);
       setIsLoggedIn(true);
       setIsLoading(false); // 2. Loading...
-      // setLoggedUser(response.data.payload)
+      setLoggedUser(response.data.payload)
       setUserRole(response.data.payload.role);
       setUserName(response.data.payload.username);
     } catch (error) {
@@ -34,7 +34,7 @@ function AuthWrapper(props) {
       console.log(error);
       setIsLoggedIn(false);
       setIsLoading(false)
-      // setLoggedUser(null)
+      setLoggedUser(null)
       setUserRole(null);
       setUserName(null);
     }
