@@ -1,7 +1,8 @@
 function NotFound() {
   return (
     <div>
-      <h3>Error 404. Pagina no encontrada :(</h3>
+      <h2>Error 404.</h2>
+      <h3>Page not found :(</h3>
     </div>
   );
 }
