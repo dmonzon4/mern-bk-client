@@ -41,17 +41,13 @@ export default function App() {
         {/* rutas privadas */}
         {/* <Route path="admin/managament" element={ <IsPrivate><Management /></IsPrivate> }/> */}
         {userRole === "admin" ? (
-          <Route path="/admin/management" element={<Management />} />
-        ) : null}
+          <Route path="/admin/management" element={<Management />} />) : null}
         {userRole === "admin" ? (
-          <Route path="/admin/product-list" element={<ProductList />} />
-        ) : null}
+          <Route path="/admin/product-list" element={<ProductList />} />) : null}
         {userRole === "admin" ? (
-          <Route path="/admin/add-product" element={<AddProduct />} />
-        ) : null}
+          <Route path="/admin/add-product" element={<AddProduct />} />) : null}
         {userRole === "admin" ? (
-          <Route path="/admin/all-reservations" element={<AllReservations />} />
-        ) : null}
+          <Route path="/admin/all-reservations" element={<AllReservations />} />) : null}
 
         {/* error FE routes */}
         <Route path="/error" element={<Error />} />

@@ -12,6 +12,7 @@ function AuthWrapper(props) {
   const [isLoading, setIsLoading] = useState(true); // 1. Loading...
   const [ loggedUser, setLoggedUser ] = useState(null);
   const [userRole, setUserRole] = useState(null);
+  const [userName, setUserName] = useState(null);
 
   const authenticateUser = async () => {
     // esta función va a enviar el token a backend para validarlo
@@ -27,6 +28,7 @@ function AuthWrapper(props) {
       setIsLoading(false); // 2. Loading...
       // setLoggedUser(response.data.payload)
       setUserRole(response.data.payload.role);
+      setUserName(response.data.payload.username);
     } catch (error) {
       // si el código llega a este punto (401) significa que el token no es válido o no existe
       console.log(error);
@@ -34,6 +36,7 @@ function AuthWrapper(props) {
       setIsLoading(false)
       // setLoggedUser(null)
       setUserRole(null);
+      setUserName(null);
     }
   };
 
@@ -46,6 +49,7 @@ function AuthWrapper(props) {
     authenticateUser,
     isLoggedIn,
     userRole,
+    userName,
   };
 
   if (isLoading === true) { // 3. Loading...
