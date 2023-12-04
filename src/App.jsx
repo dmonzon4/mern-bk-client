@@ -19,7 +19,9 @@ import ReservationManagement from "./pages/ReservationManagement";
 import Management from "./pages/admin/Management";
 import ProductList from "./pages/admin/ProductList";
 import AddProduct from "./pages/admin/AddProduct";
-import AllReservations from "./pages/admin/AllReservations";
+import AreaList from "./pages/admin/AreaList";
+import AddArea from "./pages/admin/AddArea";
+import ReservationList from "./pages/admin/ReservationList";
 
 // error-pages
 import Error from "./pages/error/Error";
@@ -28,6 +30,7 @@ import NotFound from "./pages/error/NotFound";
 // components
 import Navbar from "./components/Navbar";
 import IsPrivate from "./components/IsPrivate";
+
 
 
 export default function App() {
@@ -53,9 +56,11 @@ export default function App() {
 
         {/* rutas privadas */}
         <Route path="/admin/management" element={<IsPrivate><Management /></IsPrivate>}/>
+        <Route path="/admin/area-list" element={<IsPrivate><AreaList /></IsPrivate>} />
+        <Route path="/admin/add-area" element={<IsPrivate><AddArea /></IsPrivate>} />
         <Route path="/admin/product-list" element={<IsPrivate><ProductList /></IsPrivate>} />
         <Route path="/admin/add-product" element={<IsPrivate><AddProduct /></IsPrivate>} />
-        <Route path="/admin/all-reservations" element={<IsPrivate><AllReservations /></IsPrivate>} />
+        <Route path="/admin/reservation-list" element={<IsPrivate><ReservationList /></IsPrivate>} />
         
         {/* {userRole === "admin" ? (
           <Route path="/admin/management" element={<IsPrivate><Management /></IsPrivate>} />) : null} */}
