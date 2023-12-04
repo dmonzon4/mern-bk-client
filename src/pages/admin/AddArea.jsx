@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../../services/config";
 
-function AddAreaForm(props) {
+function AddArea() {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -23,12 +23,17 @@ function AddAreaForm(props) {
     try {
       const response = await service.post("/areas", newArea);
       console.log(response);
-      props.getData();
+      // props.getData();
 
     } catch (error) {
       console.error(error);
       navigate("/error");
     }
+  };
+
+  const handleButtonClick = (e) => {
+    handleSubmit(e);
+    navigate('/admin/area-list');
   };
 
   return (
@@ -43,9 +48,8 @@ function AddAreaForm(props) {
           onChange={handleNameChange}
           value={name}
         />
-
         <br />
-
+        <br />
         <label htmlFor="image">Image: </label>
         <input
           type="text"
@@ -53,13 +57,12 @@ function AddAreaForm(props) {
           onChange={handleImageChange}
           value={image}
         />
-
         <br />
-
-        <button type="submit">Add</button>
+        <br />
+        <button type="submit" onClick={handleButtonClick}>Add</button>
       </form>
     </div>
   );
 }
 
-export default AddAreaForm;
+export default AddArea;
