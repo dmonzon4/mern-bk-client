@@ -44,46 +44,46 @@
 
 
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import service from "../services/config";
+import { AuthContext } from "../context/auth.context";
 
 function ReservationForm(props) {
   const navigate = useNavigate();
 
-  const [users, setUsers] = useState([]);
+  const { authenticateUser } = useContext(AuthContext);
+  const [username, setUsername] = useState("");
   const [areas, setAreas] = useState([]);
-  const [user, setUser] = useState("");
   const [reservedArea, setReservedArea] = useState("");
   const [reservationDate, setReservationDate] = useState("");
-  const [reservationTime, setReservationTime] = useState("14:00"); // Default value
+  const [reservationTime, setReservationTime] = useState("14:00");
   const [numberOfPeople, setNumberOfPeople] = useState("");
 
-  // Fetch users and areas data
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await service.get("/users");
-        setUsers(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const fetchAreas = async () => {
-      try {
-        const response = await service.get("/areas");
-        setAreas(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchUsers();
     fetchAreas();
+    getData();
   }, []);
 
-  const handleUserChange = (e) => setUser(e.target.value);
+  const fetchAreas = async () => {
+    try {
+      const response = await service.get("/areas");
+      setAreas(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const response = await service.get("/auth/verify");
+      setUsername(response.data.payload.username);
+      await authenticateUser();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleReservedAreaChange = (e) => setReservedArea(e.target.value);
   const handleReservationDateChange = (e) => setReservationDate(e.target.value);
   const handleReservationTimeChange = (e) => setReservationTime(e.target.value);
@@ -93,7 +93,7 @@ function ReservationForm(props) {
     e.preventDefault();
 
     const newReservation = {
-      user,
+      user: username,
       reservedArea,
       reservationDate,
       reservationTime,
@@ -104,6 +104,7 @@ function ReservationForm(props) {
       const response = await service.post("/reservations", newReservation);
       console.log(response);
       props.getData();
+      // navigate('/admin/area-list');!!!!!!!!!!!!!!!!!!!!!!!1
     } catch (error) {
       console.log(error);
       navigate("/error");
@@ -115,14 +116,8 @@ function ReservationForm(props) {
       <h3>Crear Reserva</h3>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="user">Usuario: </label>
-        <select name="user" onChange={handleUserChange} value={user}>
-          {users.map((user) => (
-            <option key={user._id} value={user._id}>
-              {user.username} {/* Assuming 'username' exists in the user model */}
-            </option>
-          ))}
-        </select>
+        <label htmlFor="user">Nombre del Usuario: </label>
+        <input type="text" value={username} readOnly />
         <br />
 
         <label htmlFor="reservedArea">Área reservada: </label>
@@ -133,7 +128,7 @@ function ReservationForm(props) {
         >
           {areas.map((area) => (
             <option key={area._id} value={area._id}>
-              {area.name} {/* Assuming 'name' exists in the area model */}
+              {area.name}
             </option>
           ))}
         </select>
@@ -154,9 +149,8 @@ function ReservationForm(props) {
           onChange={handleReservationTimeChange}
           value={reservationTime}
         >
-          {/* Options for reservation time */}
           {Array.from(Array(9).keys()).map((hour) => {
-            const time = `${hour + 14}:00`; // Starting from 14:00
+            const time = `${hour + 14}:00`;
             return (
               <option key={time} value={time}>
                 {time}
