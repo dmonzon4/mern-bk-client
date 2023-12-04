@@ -10,6 +10,7 @@ function AddProduct() {
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
+  // const [errors, setErrors] = useState({});
 
   const handleNameChange = (e) => setName(e.target.value);
   const handlePriceChange = (e) => setPrice(e.target.value);
@@ -18,6 +19,7 @@ function AddProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
 
     const newProduct = {
       name,
@@ -26,10 +28,31 @@ function AddProduct() {
       image,
     };
 
+    // // Validación de campos
+    // const newErrors = {};
+    // if (!name) {
+    //   newErrors.name = "Name is required";
+    // }
+    // if (!price) {
+    //   newErrors.price = "Price is required";
+    // }
+    // if (!category) {
+    //   newErrors.category = "Category is required";
+    // }
+    // if (!image) {
+    //   newErrors.image = "Image URL is required";
+    // }
+
+    // if (Object.keys(newErrors).length > 0) {
+    //   setErrors(newErrors);
+    //   return;
+    // }
+
     try {
       const response = await service.post("/products", newProduct);
       console.log(response);
       navigate('/admin/product-list');
+      // setErrors({});
 
     } catch (error) {
       console.error(error);
@@ -49,6 +72,7 @@ function AddProduct() {
           onChange={handleNameChange}
           value={name}
         />
+        {/* {errors.name && <p style={{ color: "red" }}>{errors.name}</p>} */}
         <br />
         <br />
         <label number="price">Price: </label>
@@ -58,15 +82,20 @@ function AddProduct() {
           onChange={handlePriceChange}
           value={price}
         />
+        {/* {errors.name && <p style={{ color: "red" }}>{errors.price}</p>} */}
         <br />
         <br />
         <label htmlFor="category">Category: </label>
-        <input
-          type="text"
+        <select
           name="category"
           onChange={handleCategoryChange}
           value={category}
-        />
+        >
+          <option value="">Select a category</option>
+          <option value="food">Food</option>
+          <option value="drink">Drink</option>
+        </select>
+        {/* {errors.name && <p style={{ color: "red" }}>{errors.category}</p>} */}
         <br />
         <br />
         <label htmlFor="image">Image: </label>
@@ -76,6 +105,7 @@ function AddProduct() {
           onChange={handleImageChange}
           value={image}
         />
+        {/* {errors.name && <p style={{ color: "red" }}>{errors.image}</p>} */}
         <br />
         <br />
         <button type="submit">Add</button>
