@@ -50,7 +50,7 @@ function Home() {
   return (
     <div>
       <p>Welcome {username}!</p>
-      <h1>Home</h1>
+      <h1>Bayerische Küche</h1>
       <nav>
           <NavLink to="/areas" style={toggleStyles(true)}>See our areas</NavLink>
           <br />

@@ -23,6 +23,7 @@ function AddArea() {
     try {
       const response = await service.post("/areas", newArea);
       console.log(response);
+      navigate('/admin/area-list');
       // props.getData();
 
     } catch (error) {
@@ -31,10 +32,6 @@ function AddArea() {
     }
   };
 
-  const handleButtonClick = (e) => {
-    handleSubmit(e);
-    navigate('/admin/area-list');
-  };
 
   return (
     <div>
@@ -59,7 +56,7 @@ function AddArea() {
         />
         <br />
         <br />
-        <button type="submit" onClick={handleButtonClick}>Add</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );
