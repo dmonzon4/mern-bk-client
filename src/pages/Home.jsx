@@ -1,15 +1,3 @@
-// function Home() {
-//   return (
-//     <div>
-//       <p>Welcome setUserRole(response.data.payload.username);</p>
-//       <h1>Home</h1>
-//     </div>
-//   )
-// }
-
-// export default Home
-
-
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import service from "../services/config";

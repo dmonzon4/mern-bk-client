@@ -35,6 +35,7 @@ export default function Reservation() {
   const [userReservations, setUserReservations] = useState([]);
   const { userData } = useContext(AuthContext);
   const [username, setUsername] = useState('');
+  const { authenticateUser } = useContext(AuthContext);
 
   useEffect(() => {
     getData();
@@ -51,9 +52,24 @@ export default function Reservation() {
     }
   };
 
-  const handleReservationManagement = () => {
-    navigate('/reservation-management');
-  };
+  useEffect(() => {
+    getDataN();
+  }, []);
+
+    const getDataN = async () => {
+      try {
+        const response = await service.get("/auth/verify");
+        console.log(response.data.payload.username)
+        setUsername(response.data.payload.username);
+        await authenticateUser();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+  // const handleReservationManagement = () => {
+  //   navigate(`/reservation/${eachReservation._id}/reservation-management`);
+  // };
 
   const handleCancelReservation = () => {
     // Lógica para cancelar la reserva
@@ -62,20 +78,17 @@ export default function Reservation() {
   return (
     <div>
       <h1>Reservations</h1>
-      <p>Nombre del Usuario: <input type="text" value={username} readOnly /></p>
+      <h3>Username: {username} </h3>
       <div>
-        {userReservations.map((reservation) => (
-          <div key={reservation._id}>
-            <p>Reservation Details</p>
-            {/* Mostrar el nombre del área en lugar del ID */}
-            <p>Reserved Area: {reservation.reservedAreaName}</p>
-            <p>Reservation Date: {reservation.reservationDate}</p>
-            <p>Reservation Time: {reservation.reservationTime}</p>
-            <p>Number of People: {reservation.numberOfPeople}</p>
-
-            {/* Botones para gestionar y cancelar la reserva */}
-            <button onClick={handleReservationManagement}>Reservation Management</button>
-            <button onClick={handleCancelReservation}>Cancel</button>
+        {userReservations.map((eachReservation) => (
+          <div key={eachReservation._id}>
+            <h4>Reservation Details</h4>
+            <p>Reserved Area: {eachReservation.reservedArea}</p>
+            <p>Reservation Date: {eachReservation.reservationDate}</p>
+            <p>Reservation Time: {eachReservation.reservationTime}</p>
+            <p>Number of People: {eachReservation.numberOfPeople}</p>
+            <Link to={`/reservation/${eachReservation._id}/reservation-management`}>Details</Link>
+            {/* <button onClick={handleCancelReservation}>Cancel</button> */}
           </div>
         ))}
       </div>

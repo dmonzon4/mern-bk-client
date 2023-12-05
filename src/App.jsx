@@ -51,8 +51,10 @@ export default function App() {
         <Route path="/food-menu" element={<FoodMenu />} />
         <Route path="/drink-menu" element={<DrinkMenu />} />
         <Route path="/reservation" element={<Reservation />} />
+        <Route path="/reservation/:reservationId/reservation-management" element={<ReservationManagement />} />
+        <Route path="/reservation/:reservationId/reservation-management" element={<ReservationList/>} />
         <Route path="/new-reservation" element={<NewReservation />} />
-        <Route path="/reservation-management" element={<ReservationManagement />} />
+        {/* <Route path="/reservation-management" element={<ReservationManagement />} /> */}
 
         {/* rutas privadas */}
         <Route path="/admin/management" element={<IsPrivate><Management /></IsPrivate>}/>
