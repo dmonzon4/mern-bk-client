@@ -7,7 +7,8 @@ export default function Profile() {
   const navigate = useNavigate();
   
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState(''); 
+  const [email, setEmail] = useState('');
+  const [phoneNumber, sePhoneNumber] = useState(''); 
   const { authenticateUser } = useContext(AuthContext);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ export default function Profile() {
         console.log(response.data.payload.username)
         setUsername(response.data.payload.username);
         setEmail(response.data.payload.email);
+        sePhoneNumber(response.data.payload.phoneNumber);
         await authenticateUser();
       } catch (error) {
         console.log(error);
@@ -49,7 +51,7 @@ export default function Profile() {
 
         {/* <div className="mb-3">
           <label >Phone Number:</label>
-          <input type="text" id="telNum" value={""} readOnly />
+          <input type="text" id="telNum" value={phoneNumber} readOnly />
         </div> */}
 
       </form>

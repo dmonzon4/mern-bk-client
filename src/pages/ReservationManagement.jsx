@@ -163,8 +163,8 @@ export default function ReservationManagement() {
       <h2>Reservation details</h2>
       {/* <p>Welcome {username}!</p> */}
       {/* <h3>{details.data.payload.username}</h3> */}
-      <h3>Name: {details.user}</h3>
-      <h3>Area: {details.reservedArea}</h3>
+      <h3>Name: {details.user.username}</h3>
+      <h3>Area: {details.reservedArea.name}</h3>
       <h3>Reservation Date: {details.reservationDate}</h3>
       <h3>Reservation Time:{details.reservationTime}</h3>
       <h3>Number of people: {details.numberOfPeople}</h3>
