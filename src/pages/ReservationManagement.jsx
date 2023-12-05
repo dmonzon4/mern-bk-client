@@ -151,9 +151,6 @@ export default function ReservationManagement() {
   const handleCancelReservation = async () => {
     try {
       await axios.delete(`http://localhost:5005/api/reservations/${params.reservationId}`);
-      
-      // Redireccionar o ejecutar otras acciones luego de cancelar la reserva
-      // Por ejemplo, redirigir a una página de confirmación
       navigate("/reservation");
     } catch (error) {
       console.log(error);

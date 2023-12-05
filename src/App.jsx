@@ -52,9 +52,9 @@ export default function App() {
         <Route path="/drink-menu" element={<DrinkMenu />} />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/reservation/:reservationId/reservation-management" element={<ReservationManagement />} />
-        <Route path="/reservation/:reservationId/reservation-management" element={<ReservationList/>} />
+        <Route path="/reservation/:reservationId/reservation-management-admin" element={<ReservationManagement />} />
+        {/* <Route path="/reservation/:reservationId/reservation-list" element={<ReservationList/>} /> */}
         <Route path="/new-reservation" element={<NewReservation />} />
-        {/* <Route path="/reservation-management" element={<ReservationManagement />} /> */}
 
         {/* rutas privadas */}
         <Route path="/admin/management" element={<IsPrivate><Management /></IsPrivate>}/>
@@ -63,6 +63,7 @@ export default function App() {
         <Route path="/admin/product-list" element={<IsPrivate><ProductList /></IsPrivate>} />
         <Route path="/admin/add-product" element={<IsPrivate><AddProduct /></IsPrivate>} />
         <Route path="/admin/reservation-list" element={<IsPrivate><ReservationList /></IsPrivate>} />
+        {/* <Route path="/reservation/:reservationId/reservation-list" element={<ReservationList/>} /> */}
         
         {/* {userRole === "admin" ? (
           <Route path="/admin/management" element={<IsPrivate><Management /></IsPrivate>} />) : null} */}

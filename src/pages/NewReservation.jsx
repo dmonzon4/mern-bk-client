@@ -227,7 +227,8 @@ function ReservationForm() {
   };
 
   const handleReservationDateChange = (e) => {
-    setReservationDate(e.target.value);
+    const selectedDate = e.target.value;
+    setReservationDate(selectedDate);
   };
 
   const handleReservationTimeChange = (e) => {
@@ -244,7 +245,7 @@ function ReservationForm() {
     const newReservation = {
       user: userId,
       reservedArea: reservedAreaId,
-      reservationDate,
+      reservationDate: new Date(reservationDate).toLocaleDateString(),
       reservationTime,
       numberOfPeople,
     };

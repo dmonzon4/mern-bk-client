@@ -83,10 +83,10 @@ export default function Reservation() {
         {userReservations.map((eachReservation) => (
           <div key={eachReservation._id}>
             <h4>Reservation Details</h4>
-            <p>Reserved Area: {eachReservation.reservedArea}</p>
+            {/* <p>Reserved Area: {eachReservation.reservedArea}</p> */}
             <p>Reservation Date: {eachReservation.reservationDate}</p>
             <p>Reservation Time: {eachReservation.reservationTime}</p>
-            <p>Number of People: {eachReservation.numberOfPeople}</p>
+            {/* <p>Number of People: {eachReservation.numberOfPeople}</p> */}
             <Link to={`/reservation/${eachReservation._id}/reservation-management`}>Details</Link>
             {/* <button onClick={handleCancelReservation}>Cancel</button> */}
           </div>
