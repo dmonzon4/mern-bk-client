@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import service from "../../services/config";
 
 export default function ProductList() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export default function ProductList() {
 
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:5005/api/products");
+      const response = await service.get("/products");
       console.log(response);
       setAllProducts(response.data);
       setIsLoading(false);
@@ -69,6 +70,10 @@ export default function ProductList() {
                   style={{ maxWidth: "200px", maxHeight: "150px" }}
                 />
               )}
+              <br />
+              <Link to={`/admin/${eachProduct._id}/edit-product`}>
+                <button>Edit</button>
+              </Link>
               {/* <span>
                 <button onClick={() => handleDelete(eachArea._id)}>
                   Delete
@@ -95,9 +100,14 @@ export default function ProductList() {
                 style={{ maxWidth: "200px", maxHeight: "150px" }}
               />
             )}
+            <br />
+      <Link to={`/admin/${eachProduct._id}/edit-product`}>
+        <button>Edit</button>
+      </Link>
           </div>
         ))}
       </div>
+      <br />
       <div>
         <button onClick={handleButtonClick}>Add new product</button>
       </div>

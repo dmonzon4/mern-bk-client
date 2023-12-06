@@ -30,6 +30,7 @@ import NotFound from "./pages/error/NotFound";
 // components
 import Navbar from "./components/Navbar";
 import IsPrivate from "./components/IsPrivate";
+import EditProduct from "./components/EditProduct";
 
 
 
@@ -64,6 +65,8 @@ export default function App() {
         <Route path="/admin/add-product" element={<IsPrivate><AddProduct /></IsPrivate>} />
         <Route path="/admin/reservation-list" element={<IsPrivate><ReservationList /></IsPrivate>} />
         {/* <Route path="/reservation/:reservationId/reservation-list" element={<ReservationList/>} /> */}
+        {/* <Route path="/admin/product-list" element={<IsPrivate><ProductList /></IsPrivate>} /> */}
+        <Route path="/admin/:productId/edit-product" element={<IsPrivate><EditProduct /></IsPrivate>} />
         
         {/* {userRole === "admin" ? (
           <Route path="/admin/management" element={<IsPrivate><Management /></IsPrivate>} />) : null} */}

@@ -245,7 +245,8 @@ function ReservationForm() {
     const newReservation = {
       user: userId,
       reservedArea: reservedAreaId,
-      reservationDate: new Date(reservationDate).toLocaleDateString(),
+      // reservationDate: new Date(reservationDate).toLocaleDateString(),
+      reservationDate,
       reservationTime,
       numberOfPeople,
     };

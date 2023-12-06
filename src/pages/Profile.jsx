@@ -49,10 +49,10 @@ export default function Profile() {
           <input type="text" id="email" value={email} readOnly />
         </div>
 
-        {/* <div className="mb-3">
+        <div className="mb-3">
           <label >Phone Number:</label>
           <input type="text" id="telNum" value={phoneNumber} readOnly />
-        </div> */}
+        </div>
 
       </form>
       <div>
