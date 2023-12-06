@@ -70,6 +70,11 @@ export default function ReservationManagementAdmin() {
     }
   };
 
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   return (
     <div>
       <h2>Reservation details</h2>
@@ -77,7 +82,7 @@ export default function ReservationManagementAdmin() {
       {/* <h3>{details.data.payload.username}</h3> */}
       <h3>Name: {details.user.username}</h3>
       <h3>Area: {details.reservedArea.name}</h3>
-      <h3>Reservation Date: {details.reservationDate}</h3>
+      <h3>Reservation Date: {formatDate(details.reservationDate)}</h3>
       <h3>Reservation Time:{details.reservationTime}</h3>
       <h3>Number of people: {details.numberOfPeople}</h3>
       <button onClick={handleCancelReservation}>Cancel</button>      

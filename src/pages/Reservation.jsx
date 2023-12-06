@@ -71,8 +71,13 @@ export default function Reservation() {
   //   navigate(`/reservation/${eachReservation._id}/reservation-management`);
   // };
 
-  const handleCancelReservation = () => {
-    // Lógica para cancelar la reserva
+  // const handleCancelReservation = () => {
+  //   // Lógica para cancelar la reserva
+  // };
+
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
   return (
@@ -84,7 +89,7 @@ export default function Reservation() {
           <div key={eachReservation._id}>
             <h4>Reservation Details</h4>
             {/* <p>Reserved Area: {eachReservation.reservedArea}</p> */}
-            <p>Reservation Date: {eachReservation.reservationDate}</p>
+            <h3>Reservation Date: {formatDate(eachReservation.reservationDate)}</h3>
             <p>Reservation Time: {eachReservation.reservationTime}</p>
             {/* <p>Number of People: {eachReservation.numberOfPeople}</p> */}
             <Link to={`/reservation/${eachReservation._id}/reservation-management`}>Details</Link>
