@@ -122,7 +122,7 @@ export default function ReservationManagement() {
 
     try {
 
-      const response = await axios.get(`http://localhost:5005/api/reservations/${params.reservationId}`)
+      const response = await service.get(`/reservations/${params.reservationId}`)
   //     const response = await service.get(`/todo/${params.todoId}`)
       console.log(response.data)
       setDetails(response.data)
@@ -150,7 +150,7 @@ export default function ReservationManagement() {
 
   const handleCancelReservation = async () => {
     try {
-      await axios.delete(`http://localhost:5005/api/reservations/${params.reservationId}`);
+      await service.delete(`/reservations/${params.reservationId}`);
       navigate("/reservation");
     } catch (error) {
       console.log(error);

@@ -27,8 +27,8 @@
 
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import service from '../services/config';
 import { AuthContext } from '../context/auth.context';
+import service from "../services/config";
 
 export default function Reservation() {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ export default function Reservation() {
   const getData = async (userId) => {
     try {
       
-      const response = await service.get('http://localhost:5005/api/reservations/'); // Cambiar 
+      const response = await service.get('/reservations');
       setUserReservations(response.data);
     } catch (error) {
       console.log(error);

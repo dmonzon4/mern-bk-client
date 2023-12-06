@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import service from "../../services/config";
 import PropagateLoader from "react-spinners/PropagateLoader";
 
 export default function AreaList() {
@@ -19,7 +20,7 @@ export default function AreaList() {
 
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:5005/api/areas");
+      const response = await service.get("/areas");
       console.log(response);
       setAllAreas(response.data);
       setIsLoading(false); // 2. Loading...

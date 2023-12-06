@@ -89,7 +89,7 @@ export default function Reservation() {
   const getData = async (userId) => {
     try {
       
-      const response = await service.get('http://localhost:5005/api/reservations/'); // Cambiar 
+      const response = await service.get('/reservations/');
       setUserReservations(response.data);
     } catch (error) {
       console.log(error);
