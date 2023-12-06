@@ -36,7 +36,7 @@ export default function AreaList() {
       <div
         style={{ padding: "300px", display: "flex", justifyContent: "center" }}
       >
-        <PropagateLoader color={"cornflowerblue"} size={20} />
+        <PropagateLoader color={"darkorange"} size={15} />
       </div>
     );
   }

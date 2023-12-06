@@ -142,7 +142,7 @@ export default function ReservationManagement() {
       <div
         style={{ padding: "300px", display: "flex", justifyContent: "center" }}
       >
-        <PropagateLoader color={"cornflowerblue"} size={20} />
+        <PropagateLoader color={"darkorange"} size={15} />
       </div>
     );
   }
@@ -168,7 +168,7 @@ export default function ReservationManagement() {
       <h3>Reservation Date: {details.reservationDate}</h3>
       <h3>Reservation Time:{details.reservationTime}</h3>
       <h3>Number of people: {details.numberOfPeople}</h3>
-      <button onClick={handleCancelReservation}>Cancel</button>      
+      {/* <button onClick={handleCancelReservation}>Cancel</button>       */}
     </div>
   );
 }

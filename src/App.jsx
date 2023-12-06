@@ -22,6 +22,7 @@ import AddProduct from "./pages/admin/AddProduct";
 import AreaList from "./pages/admin/AreaList";
 import AddArea from "./pages/admin/AddArea";
 import ReservationList from "./pages/admin/ReservationList";
+import ReservationManagementAdmin from "./pages/admin/ReservationManagementAdmin";
 
 // error-pages
 import Error from "./pages/error/Error";
@@ -53,7 +54,7 @@ export default function App() {
         <Route path="/drink-menu" element={<DrinkMenu />} />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/reservation/:reservationId/reservation-management" element={<ReservationManagement />} />
-        <Route path="/reservation/:reservationId/reservation-management-admin" element={<ReservationManagement />} />
+        <Route path="/reservation/:reservationId/reservation-management-admin" element={<ReservationManagementAdmin />} />
         {/* <Route path="/reservation/:reservationId/reservation-list" element={<ReservationList/>} /> */}
         <Route path="/new-reservation" element={<NewReservation />} />
 
