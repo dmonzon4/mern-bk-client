@@ -12,10 +12,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em darkcyan);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em cadetblue);
 }
 
 @keyframes logo-spin {
@@ -39,4 +39,20 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+body {
+  background-image: url('/public/images/backg.jpg');
+  height: 100%;
+  margin: 0;
+  background-size:cover;
+  background-position:center;
+  background-color:rgba(0,0,0,0.5);
+  background-blend-mode:darken;
+}
+
+.navbar {
+  padding-top: 10px;
+
 }

@@ -35,7 +35,7 @@ export default function Navbar() {
   if (isLoggedIn) {
     if (userRole === "admin") {
       return (
-        <nav>
+        <nav className="navbar">
           <NavLink to="/" style={toggleStyles(true)}>Home</NavLink>
           <NavLink to="/admin/management" style={toggleStyles(true)}>Management</NavLink>
           <NavLink to="/profile" style={toggleStyles(true)}>Profile</NavLink>
