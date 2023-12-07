@@ -37,7 +37,7 @@ function Home() {
 
   return (
     <div>
-      <p>Welcome {username}!</p>
+      <h2>Welcome {username}!</h2>
       <h1>Bayerische Küche</h1>
       <nav>
           <NavLink to="/areas" style={toggleStyles(true)}>See our areas</NavLink>
