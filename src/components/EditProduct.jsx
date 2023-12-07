@@ -214,26 +214,33 @@ const EditProduct = () => {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <h2>Edit Product</h2>
-      <form onSubmit={handleUpdateProduct}>
+      <form onSubmit={handleUpdateProduct}
+      className="reservation-form">
+        <div className="form-group">
         <label>Name:</label>
         <input
-          type="text"
+          type="name"
           name="name"
           value={editedProduct.name || productData.name}
           onChange={handleInputChange}
         />
+        </div>
         <br />
-        <label>Price:</label>
+        <div className="form-group">
+          <label>Price:</label>
         <input
-          type="text"
+          type="name"
           name="price"
           value={editedProduct.price || productData.price}
           onChange={handleInputChange}
         />
+        </div>
         <br />
+        <div className="form-group">
         <button type="submit">Update Product</button>
+        </div>
       </form>
     </div>
   );

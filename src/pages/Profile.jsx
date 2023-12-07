@@ -41,17 +41,17 @@ export default function Profile() {
 
         <div className="form-group">
           <label >Name:</label>
-          <input type="text" id="name" value={username} readOnly />
+          <input type="name" id="name" value={username} readOnly />
         </div>
 
         <div className="form-group">
           <label >Email:</label>
-          <input type="text" id="email" value={email} readOnly />
+          <input type="name" id="email" value={email} readOnly />
         </div>
 
         <div className="form-group">
           <label >Phone Number:</label>
-          <input type="text" id="telNum" value={phoneNumber} readOnly />
+          <input type="name" id="telNum" value={phoneNumber} readOnly />
         </div>
 
       </form>
