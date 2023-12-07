@@ -119,3 +119,11 @@ select {
   font-size: 16px;
 }
 /* ************************************** */
+
+
+.shadowed-h3 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Cambia los valores según lo que desees */
+  /* Otros estilos opcionales para tu h3 */
+  color: darkcyan; /* Cambia el color del texto si lo necesitas */
+  /* Añade otros estilos según tus preferencias */
+}

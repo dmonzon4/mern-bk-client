@@ -1,30 +1,3 @@
-// import React from 'react'
-// import { Link, useNavigate } from 'react-router-dom'
-
-// export default function Reservation() {
-//   const navigate = useNavigate();
-
-//   const handleButtonClick = () => {
-//     navigate('/reservation-management');
-//   };
-
-//   return (
-//     <div>
-//     <h1>Reservations</h1>
-//     {/* <img reserva 1> */}
-//     <div>
-//         <Link to="/reservation">Reservas</Link>
-//         <br />
-//         <button onClick={handleButtonClick}>Reservation Management</button>
-//         <br />
-//         <br />
-//         <button onClick={handleButtonClick}>Cancel</button>
-//       </div>
-//     </div>
-//   )
-// }
-
-
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
@@ -36,6 +9,24 @@ export default function Reservation() {
   const { userData } = useContext(AuthContext);
   const [username, setUsername] = useState('');
   const { authenticateUser } = useContext(AuthContext);
+  
+
+  // useEffect(() => {
+  //   if (userData && userData.isLoggedIn) {
+  //     getUsername();
+  //     getUserReservations();
+  //   }
+  // }, []);
+
+  // const getUsername = async () => {
+  //   try {
+  //     const response = await service.get("/auth/verify");
+  //     setUsername(response.data.payload.username);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
 
   useEffect(() => {
     getData();
@@ -52,6 +43,19 @@ export default function Reservation() {
     }
   };
 
+  //********************************** */
+
+  // const getData = async () => {
+  //   try {
+  //     const response = await service.get(`/reservations/user/${loggedUser._id}`);
+  //     setUserReservations(response.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //     navigate("/error");
+  //   }
+  // };
+  //********************************* */
+
   useEffect(() => {
     getDataN();
   }, []);
@@ -59,7 +63,7 @@ export default function Reservation() {
     const getDataN = async () => {
       try {
         const response = await service.get("/auth/verify");
-        console.log(response.data.payload.username)
+        // console.log(response.data.payload.username)
         setUsername(response.data.payload.username);
         await authenticateUser();
       } catch (error) {
