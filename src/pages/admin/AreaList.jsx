@@ -59,6 +59,7 @@ export default function AreaList() {
           return (
             <div key={eachArea._id}>
               <strong>{eachArea.name}</strong>
+              <br />
               {eachArea.image && (
                 <img
                   src={eachArea.image}

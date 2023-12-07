@@ -44,7 +44,7 @@ export default function Navbar() {
       );
     } else {
       return (
-        <nav>
+        <nav className="navbar">
           <NavLink to="/" style={toggleStyles(true)}>Home</NavLink>
           <NavLink to="/new-reservation" style={toggleStyles(true)}>New Reservation</NavLink>
           <NavLink to="/profile" style={toggleStyles(true)}>Profile</NavLink>
@@ -54,7 +54,7 @@ export default function Navbar() {
     }
   } else {
     return (
-      <nav>
+      <nav className="navbar">
         <NavLink to="/" style={toggleStyles(true)}>Home</NavLink>
         <NavLink to="/signup" style={toggleStyles(true)}>Signup</NavLink>
         <NavLink to="/login" style={toggleStyles(true)}>Login</NavLink>

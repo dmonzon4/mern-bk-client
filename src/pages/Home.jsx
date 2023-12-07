@@ -14,7 +14,7 @@ function Home() {
     const getData = async () => {
       try {
         const response = await service.get("/auth/verify");
-        console.log(response.data.payload.username)
+        // console.log(response.data.payload.username)
         setUsername(response.data.payload.username);
         await authenticateUser();
       } catch (error) {

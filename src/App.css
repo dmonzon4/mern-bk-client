@@ -1,7 +1,8 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
+  padding-top: 0px;
   text-align: center;
 }
 
@@ -53,6 +54,6 @@ body {
 }
 
 .navbar {
-  padding-top: 10px;
-
+  display: flex;
+  justify-content: space-around;
 }

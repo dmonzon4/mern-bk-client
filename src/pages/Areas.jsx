@@ -1,15 +1,68 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import service from "../services/config";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 export default function Areas() {
-  return (
-    <h1>Areas</h1>
+  const navigate = useNavigate();
 
-    // <img 1 de areas>
-    // <br />
-    // <img 1 de areas>
-    // <br /> 
-    // <img 1 de areas>
-    // <br />
-    // <img 1 de areas>
-  )
+  const [allAreas, setAllAreas] = useState(null); // => null?
+  const [isLoading, setIsLoading] = useState(true); // 1. Loading...
+
+  const handleButtonClick = () => {
+    navigate("/admin/add-area");
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const response = await service.get("/areas");
+      console.log(response);
+      setAllAreas(response.data);
+      setIsLoading(false); // 2. Loading...
+    } catch (error) {
+      console.log(error);
+      navigate("/error");
+    }
+  };
+
+  if (isLoading === true) {
+    // 3. Loading...
+    return (
+      <div
+        style={{ padding: "300px", display: "flex", justifyContent: "center" }}
+      >
+        <PropagateLoader color={"darkorange"} size={15} />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h3>Available Areas</h3>
+      <div>
+        {allAreas.map((eachArea) => {
+          return (
+            <div key={eachArea._id}>
+              <strong>{eachArea.name}</strong>
+              <br />
+              {eachArea.image && (
+                <img
+                  src={eachArea.image}
+                  alt={eachArea.name}
+                  style={{ maxWidth: "200px", maxHeight: "150px" }}
+                />
+              )}
+              {/* <span><button onClick={() => handleDelete(eachArea._id)}>Delete</button></span> */}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
+
