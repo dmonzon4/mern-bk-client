@@ -36,7 +36,7 @@ export default function Areas() {
       <div
         style={{ padding: "300px", display: "flex", justifyContent: "center" }}
       >
-        <PropagateLoader color={"darkorange"} size={15} />
+        <PropagateLoader color={"darkcyan"} size={15} />
       </div>
     );
   }

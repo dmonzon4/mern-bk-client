@@ -54,7 +54,7 @@ export default function ReservationManagementAdmin() {
       <div
         style={{ padding: "300px", display: "flex", justifyContent: "center" }}
       >
-        <PropagateLoader color={"darkorange"} size={20} />
+        <PropagateLoader color={"darkcyan"} size={20} />
       </div>
     );
   }

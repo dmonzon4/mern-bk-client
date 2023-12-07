@@ -36,7 +36,7 @@ export default function AreaList() {
       <div
         style={{ padding: "300px", display: "flex", justifyContent: "center" }}
       >
-        <PropagateLoader color={"darkorange"} size={15} />
+        <PropagateLoader color={"darkcyan"} size={15} />
       </div>
     );
   }
@@ -54,7 +54,7 @@ export default function AreaList() {
   return (
     <div>
       <h3>Available Areas</h3>
-      <div>
+      <div className="areaList">
         {allAreas.map((eachArea) => {
           return (
             <div key={eachArea._id}>

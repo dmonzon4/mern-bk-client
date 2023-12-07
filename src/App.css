@@ -57,3 +57,65 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
+/* **************AreaList***************** */
+.areaList {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
+  justify-content: space-between;
+}
+
+.areaList > div {
+  flex-basis: calc(33.33% - 20px); /* Establece el ancho máximo para cada área */
+  margin-bottom: 20px; /* Espacio entre las áreas */
+  box-sizing: border-box; /* Considera el padding y border en el cálculo del tamaño */
+}
+/* **************************************** */
+
+/* **************NewReservation***************** */
+
+/* Estilos para el formulario de reserva */
+.reservation-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid darkcyan;
+  border-radius: 8px;
+  background-color: #242424;
+}
+
+/* Estilos para los grupos de elementos */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Estilos para etiquetas de los inputs */
+label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Estilos para inputs y selects */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  /* border: 1px solid darkcyan; */
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+/* Estilos para el botón de envío */
+.submit-button {
+  /* background-color: #007bff; */
+  /* color: darkcyan; */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+/* ************************************** */

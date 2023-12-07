@@ -67,13 +67,13 @@ function AddArea() {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <h3>New Area</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="reservation-form">
         <div>
           <label htmlFor="name">Name: </label>
           <input
-            type="text"
+            type="name"
             name="name"
             onChange={handleNameChange}
             value={name}

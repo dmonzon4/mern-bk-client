@@ -46,53 +46,63 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="form-container">
 
-      <h1>Formulario de Registro</h1>
+      <h2>Signup</h2>
     
-      <form onSubmit={handleSignup}>
+      <form onSubmit={handleSignup} className="reservation-form">
         
-        <label>Nombre de Usuario:</label>
+      <div className="form-group">
+        <label>Username:</label>
         <input
-          type="text"
+          type="name"
           name="username"
           value={username}
           onChange={handleUsernameChange}
+          className="input-field"
         />
-
+        </div>
         <br />
 
-        <label>Correo Electronico:</label>
+        <div className="form-group">
+        <label>Email:</label>
         <input
           type="email"
           name="email"
           value={email}
           onChange={handleEmailChange}
+          className="input-field"
         />
-
+        </div>
         <br />
 
-        <label>Contraseña:</label>
+        <div className="form-group">
+        <label>Password:</label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePasswordChange}
+          className="input-field"
         />
-
+        </div>
         <br />
 
+        <div className="form-group">
         <label>Phone Number:</label>
         <input
           type="tel"
           name="phoneNumber"
           value={phoneNumber}
           onChange={handlePhoneNumberChange}
+          className="input-field"
         />
-
+        </div>
         <br />
 
-        <button type="submit">Registrar</button>
+        <div className="submit-button">
+        <button type="submit">Signup</button>
+        </div>
 
 
         <p style={{color: "red"}}>{errorMessage}</p>

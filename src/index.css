@@ -24,7 +24,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex; */
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -47,7 +47,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: darkcyan;
 }
 button:focus,
 button:focus-visible {
@@ -69,7 +69,7 @@ button:focus-visible {
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding-top: 10px;
 
 }

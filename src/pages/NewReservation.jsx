@@ -32,8 +32,6 @@
 //           <input type="text" id="telNum" value={""} readOnly />
 //         </div>
 
-        
-
 //       </form>
 //       <div>
 //         <button onClick={"handleButtonClick"}>Reservar</button>
@@ -41,7 +39,6 @@
 //     </div>
 //   )
 // }
-
 
 // import axios from "axios";
 // import { useState, useEffect, useContext } from "react";
@@ -177,9 +174,6 @@
 
 // export default ReservationForm;
 
-
-
-
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import service from "../services/config";
@@ -254,7 +248,7 @@ function ReservationForm() {
     try {
       const response = await service.post("/reservations", newReservation);
       console.log(response);
-      navigate('/reservation');
+      navigate("/reservation");
       // props.getData();
     } catch (error) {
       console.log(error);
@@ -266,62 +260,74 @@ function ReservationForm() {
     <div>
       <h3>Crear Reserva</h3>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="user">Nombre del Usuario: </label>
-        <input type="text" value={username} readOnly />
+      <form onSubmit={handleSubmit} className="reservation-form">
+        <div className="form-group">
+          <label htmlFor="user">Nombre del Usuario: </label>
+          <input type="text" value={username} readOnly />
+        </div>
         <br />
 
-        <label htmlFor="reservedArea">Área reservada: </label>
-        <select
-          name="reservedArea"
-          onChange={handleReservedAreaChange}
-          value={reservedAreaId}
-        >
-          <option value="">Selecciona un área</option>
-          {areas.map((area) => (
-            <option key={area._id} value={area._id}>
-              {area.name}
-            </option>
-          ))}
-        </select>
-        <br />
-
-        <label htmlFor="reservationDate">Fecha de reserva: </label>
-        <input
-          type="date"
-          name="reservationDate"
-          onChange={handleReservationDateChange}
-          value={reservationDate}
-        />
-        <br />
-
-        <label htmlFor="reservationTime">Hora de reserva: </label>
-        <select
-          name="reservationTime"
-          onChange={handleReservationTimeChange}
-          value={reservationTime}
-        >
-          {Array.from(Array(9).keys()).map((hour) => {
-            const time = `${hour + 14}:00`;
-            return (
-              <option key={time} value={time}>
-                {time}
+        <div className="form-group">
+          <label htmlFor="reservedArea">Área reservada: </label>
+          <select
+            name="reservedArea"
+            onChange={handleReservedAreaChange}
+            value={reservedAreaId}
+          >
+            <option value="">Selecciona un área</option>
+            {areas.map((area) => (
+              <option key={area._id} value={area._id}>
+                {area.name}
               </option>
-            );
-          })}
-        </select>
+            ))}
+          </select>
+        </div>
         <br />
 
-        <label htmlFor="numberOfPeople">Número de personas: </label>
-        <input
-          type="number"
-          name="numberOfPeople"
-          onChange={handleNumberOfPeopleChange}
-          value={numberOfPeople}
-        />
+        <div>
+          <label htmlFor="reservationDate">Fecha de reserva: </label>
+          <input
+            type="date"
+            name="reservationDate"
+            onChange={handleReservationDateChange}
+            value={reservationDate}
+          />
+        </div>
         <br />
 
-        <button type="submit">Crear Reserva</button>
+        <div className="form-group">
+          <label htmlFor="reservationTime">Hora de reserva: </label>
+          <select
+            name="reservationTime"
+            onChange={handleReservationTimeChange}
+            value={reservationTime}
+          >
+            {Array.from(Array(9).keys()).map((hour) => {
+              const time = `${hour + 14}:00`;
+              return (
+                <option key={time} value={time}>
+                  {time}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <br />
+
+        <div className="form-group">
+          <label htmlFor="numberOfPeople">Número de personas: </label>
+          <input
+            type="number"
+            name="numberOfPeople"
+            onChange={handleNumberOfPeopleChange}
+            value={numberOfPeople}
+          />
+        </div>
+        <br />
+
+        <div className="form-group">
+          <button type="submit">Crear Reserva</button>
+        </div>
       </form>
     </div>
   );

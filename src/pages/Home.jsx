@@ -42,9 +42,20 @@ function Home() {
       <nav>
           <NavLink to="/areas" style={toggleStyles(true)}>See our areas</NavLink>
           <br />
+          <br />
+          <img src="images/Terrasse.jpg" alt="Areas Image" style={{ width: '350px', height: '250px' }}/>
+          <br />
+          <br />
           <NavLink to="/food-menu" style={toggleStyles(true)}>Explore our food</NavLink>
           <br />
+          <br />
+          <img src="images/Miso-spaetzle.jpg" alt="Food Image" style={{ width: '350px', height: '250px' }}/>
+          <br />
+          <br />
           <NavLink to="/drink-menu" style={toggleStyles(true)}>Explore our drinks</NavLink>
+          <br />
+          <br />
+          <img src="images/Getraenke.jpg" alt="Drink Image" style={{ width: '350px', height: '250px' }}/>
       </nav>
     </div>
   );

@@ -111,13 +111,13 @@ function AddProduct() {
   // }
 
   return (
-    <div>
+    <div className="form-container">
       <h3>New Product</h3>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="reservation-form">
         <label htmlFor="name">Name: </label>
         <input
-          type="text"
+          type="name"
           name="name"
           onChange={handleNameChange}
           value={name}
@@ -127,7 +127,7 @@ function AddProduct() {
         <br />
         <label number="price">Price: </label>
         <input
-          type="number"
+          type="name"
           name="price"
           onChange={handlePriceChange}
           value={price}

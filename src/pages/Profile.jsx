@@ -35,28 +35,30 @@ export default function Profile() {
 
 
   return (
-    <div>
+    <div className="form-container">
       <h3>Profile data:</h3>
-      <form>
+      <form className="reservation-form">
 
-        <div className="mb-3">
+        <div className="form-group">
           <label >Name:</label>
           <input type="text" id="name" value={username} readOnly />
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label >Email:</label>
           <input type="text" id="email" value={email} readOnly />
         </div>
 
-        <div className="mb-3">
+        <div className="form-group">
           <label >Phone Number:</label>
           <input type="text" id="telNum" value={phoneNumber} readOnly />
         </div>
 
       </form>
+      <br />
       <div>
         <Link to="/reservation">Reservations</Link>
+        <br />
         <br />
         <button onClick={handleButtonClick}>Home</button>
       </div>
