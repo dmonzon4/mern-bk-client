@@ -47,7 +47,7 @@ export default function FoodMenu() {
             <img
               src={eachProduct.image}
               alt={eachProduct.name}
-              style={{ maxWidth: "200px", maxHeight: "150px" }}
+              style={{ maxWidth: "200px", maxHeight: "150px", border: '1px solid darkcyan' }}
             />
           )}
           <br />

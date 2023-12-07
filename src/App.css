@@ -102,7 +102,7 @@ input[type="number"],
 select {
   width: 100%;
   padding: 8px;
-  /* border: 1px solid darkcyan; */
+  border: 1px solid darkcyan;
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 5px;

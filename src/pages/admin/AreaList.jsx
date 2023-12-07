@@ -64,7 +64,7 @@ export default function AreaList() {
                 <img
                   src={eachArea.image}
                   alt={eachArea.name}
-                  style={{ maxWidth: "200px", maxHeight: "150px" }}
+                  style={{ maxWidth: "200px", maxHeight: "150px", border: '1px solid darkcyan' }}
                 />
               )}
               {/* <span><button onClick={() => handleDelete(eachArea._id)}>Delete</button></span> */}

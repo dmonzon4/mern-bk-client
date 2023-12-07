@@ -258,23 +258,23 @@ function ReservationForm() {
 
   return (
     <div>
-      <h3>Crear Reserva</h3>
+      <h3>Create Reservation</h3>
 
       <form onSubmit={handleSubmit} className="reservation-form">
         <div className="form-group">
-          <label htmlFor="user">Nombre del Usuario: </label>
+          <label htmlFor="user">Username: </label>
           <input type="text" value={username} readOnly />
         </div>
         <br />
 
         <div className="form-group">
-          <label htmlFor="reservedArea">Área reservada: </label>
+          <label htmlFor="reservedArea">Area: </label>
           <select
             name="reservedArea"
             onChange={handleReservedAreaChange}
             value={reservedAreaId}
           >
-            <option value="">Selecciona un área</option>
+            <option value="">Select an area</option>
             {areas.map((area) => (
               <option key={area._id} value={area._id}>
                 {area.name}
@@ -285,7 +285,7 @@ function ReservationForm() {
         <br />
 
         <div>
-          <label htmlFor="reservationDate">Fecha de reserva: </label>
+          <label htmlFor="reservationDate">Reservation date: </label>
           <input
             type="date"
             name="reservationDate"
@@ -296,7 +296,7 @@ function ReservationForm() {
         <br />
 
         <div className="form-group">
-          <label htmlFor="reservationTime">Hora de reserva: </label>
+          <label htmlFor="reservationTime">Reservation time: </label>
           <select
             name="reservationTime"
             onChange={handleReservationTimeChange}
@@ -315,7 +315,7 @@ function ReservationForm() {
         <br />
 
         <div className="form-group">
-          <label htmlFor="numberOfPeople">Número de personas: </label>
+          <label htmlFor="numberOfPeople">Number of people: </label>
           <input
             type="number"
             name="numberOfPeople"
@@ -326,7 +326,7 @@ function ReservationForm() {
         <br />
 
         <div className="form-group">
-          <button type="submit">Crear Reserva</button>
+          <button type="submit">Create reservation!</button>
         </div>
       </form>
     </div>
