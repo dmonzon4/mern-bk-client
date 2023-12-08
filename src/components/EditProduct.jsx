@@ -164,6 +164,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import service from "../services/config";
 
 const EditProduct = () => {
   const navigate = useNavigate();
@@ -175,8 +176,8 @@ const EditProduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5005/api/products/${productId}`
+        const response = await service.get(
+          `/products/${productId}`
         );
         setProductData(response.data);
         setIsLoading(false);
@@ -201,7 +202,7 @@ const EditProduct = () => {
     e.preventDefault(); // Evitar la recarga del formulario
 
     try {
-      await axios.put(`http://localhost:5005/api/products/${productId}`, editedProduct);
+      await service.put(`/products/${productId}`, editedProduct);
       navigate("/admin/product-list");
     } catch (error) {
       console.log(error);
