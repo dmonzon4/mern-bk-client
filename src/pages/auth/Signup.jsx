@@ -91,7 +91,7 @@ function Signup() {
         <div className="form-group">
         <label>Phone Number:</label>
         <input
-          type="tel"
+          type="phoneNumber"
           name="phoneNumber"
           value={phoneNumber}
           onChange={handlePhoneNumberChange}
