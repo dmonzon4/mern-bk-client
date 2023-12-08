@@ -36,6 +36,9 @@ export default function Navbar() {
     if (userRole === "admin") {
       return (
         <nav className="navbar">
+          <NavLink to="/" style={toggleStyles(true)}>
+            <img src="/images/Logo_mern_BK_projekt_3.png" alt="Logo" style={{ width: '45px', height: 'auto' }} />
+          </NavLink>
           <NavLink to="/" style={toggleStyles(true)}>Home</NavLink>
           <NavLink to="/admin/management" style={toggleStyles(true)}>Management</NavLink>
           <NavLink to="/profile" style={toggleStyles(true)}>Profile</NavLink>
@@ -45,6 +48,9 @@ export default function Navbar() {
     } else {
       return (
         <nav className="navbar">
+          <NavLink to="/" style={toggleStyles(true)}>
+            <img src="/images/Logo_mern_BK_projekt_3.png" alt="Logo" style={{ width: '45px', height: 'auto' }} />
+          </NavLink>
           <NavLink to="/" style={toggleStyles(true)}>Home</NavLink>
           <NavLink to="/new-reservation" style={toggleStyles(true)}>New Reservation</NavLink>
           <NavLink to="/profile" style={toggleStyles(true)}>Profile</NavLink>
@@ -55,6 +61,9 @@ export default function Navbar() {
   } else {
     return (
       <nav className="navbar">
+        <NavLink to="/" style={toggleStyles(true)}>
+            <img src="/images/Logo_mern_BK_projekt_3.png" alt="Logo" style={{ width: '45px', height: 'auto' }} />
+          </NavLink>
         <NavLink to="/" style={toggleStyles(true)}>Home</NavLink>
         <NavLink to="/signup" style={toggleStyles(true)}>Signup</NavLink>
         <NavLink to="/login" style={toggleStyles(true)}>Login</NavLink>
